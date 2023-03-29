@@ -8,6 +8,7 @@ const { promisify } = require('util');
 const fs = require('fs');
 const { createJWT } = require("../helpers/create-jwt");
 const jwt = require('jsonwebtoken');
+const path = require('path');
 
 
 const readFile = promisify(fs.readFile);
@@ -33,7 +34,9 @@ const renewPassword = async (req = require, res = response) => {
 
     const token = await createJWT(user._id, '3h');
 
-    let html = await readFile('/home/kattae/html/portfolio/ecommerce-backend/controllers/renewpage/index.html', 'utf8');
+    const htmlPath = path.join(__dirname, 'controllers', 'renewpage', 'index.html');
+
+    let html = await readFile(htmlPath, 'utf8');
     let template = handlebars.compile(html);
     URL_FRONT_END = process.env.URL_FRONT_END;
     let data = {
