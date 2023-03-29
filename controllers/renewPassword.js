@@ -34,7 +34,7 @@ const renewPassword = async (req = require, res = response) => {
 
     const token = await createJWT(user._id, '3h');
 
-    const htmlPath = path.join(__dirname, 'controllers', 'renewpage', 'index.html');
+    const htmlPath = path.join(__dirname, 'renewpage', 'index.html');
 
     let html = await readFile(htmlPath, 'utf8');
     let template = handlebars.compile(html);
