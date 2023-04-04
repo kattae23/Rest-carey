@@ -2,7 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const { dbConnection } = require('../database/config');
 const fileUpload = require('express-fileupload')
-const path = require('path')
+const path = require('path');
+const morgan = require('morgan');
 
 class Server {
 
@@ -42,6 +43,7 @@ class Server {
 
         // CORS
         this.app.use(cors());
+        this.app.use(morgan('dev'));
 
         // Lectura y parseo del body
         this.app.use(express.json())
