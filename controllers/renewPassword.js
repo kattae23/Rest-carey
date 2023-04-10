@@ -32,7 +32,7 @@ const renewPassword = async (req = require, res = response) => {
         });
     }
 
-    const token = await createJWT(user._id, '3h');
+    const token = await createJWT(user.uid, '3h');
 
     const htmlPath = path.join(__dirname, 'renewpage', 'index.html');
 
@@ -128,7 +128,7 @@ const changePassword = async (req = request, res = response) => {
         if (!verify) {
             return res.status(401).json({ msg: "invalid token, not verified" })
         }
-        const newToken = await createJWT(user._id, '30h');
+        const newToken = await createJWT(user.uid, '30h');
         return res.status(200).json({ user, token: newToken})
     } catch (error) {
         console.log(error)
