@@ -3,7 +3,10 @@
 This repository contains a powerful REST server backend that allows you to upload and compress files, create products with their categories, process credit card payments with Stripe, and log in with password and Google OAuth, all being handled with the MongoDB database.
 
 # Live Demo
+## Backend
 https://backend-server-ecommerce-production.up.railway.app/
+## Frontend
+https://carey-ecommerce.surge.sh/
 
 ## Features
 
